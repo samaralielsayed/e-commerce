@@ -24,7 +24,7 @@ const getProductReviews = async (req, res) => {
     try {
         const reviews = await Review.find({
             product: id
-        }).exec();
+        }).populate('user').exec();
         res.send(reviews);
 
     } catch (error) {
