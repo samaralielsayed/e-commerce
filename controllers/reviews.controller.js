@@ -48,11 +48,11 @@ const addProductReviews = async (req, res) => {
             id
         } = req.params;
 
-        if (!user || !reviewDetails){
+        if (!user || !reviewDetails) {
             res.status(404).send({
                 message: "missed data"
             })
-            return 
+            return
         }
 
         const product = await Product.findOne({
@@ -86,10 +86,13 @@ const deleteProductReviews = async (req, res) => {
             id
         } = req.params;
 
-        if (!user)
-            return res.status(404).send({
+        if (!user) {
+
+            res.status(404).send({
                 message: "missed data"
             })
+            return
+        }
 
         const review = await Review.findOne({
             _id: id
@@ -129,10 +132,13 @@ const editProductReviews = async (req, res) => {
             id
         } = req.params;
 
-        if (!user)
-            return res.status(404).send({
+        if (!user) {
+
+            res.status(404).send({
                 message: "missed data"
             })
+            return
+        }
 
         const review = await Review.findOne({
             _id: id
