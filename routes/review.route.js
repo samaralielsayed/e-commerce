@@ -9,6 +9,8 @@ router.get("/:id/reviews", controllers.getProductReviews);
 // router.post("/:id/reviews",auth, controllers.addProductReviews);
 router.post("/:id/ratings",controllers.addProductRating);
 router.post("/:id/reviews", controllers.addProductReviews);
+router.delete("/:id/reviews", controllers.deleteProductReviews);
+router.patch("/:id/reviews", controllers.editProductReviews);
 
 
 module.exports = router;

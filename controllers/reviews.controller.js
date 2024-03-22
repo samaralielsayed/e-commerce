@@ -54,7 +54,11 @@ const addProductReviews = async (req, res) => {
     res.send(review);}
     catch(error){res.status(404).send({message:error.message})}
 }
+const deleteProductReviews = async (req, res) => {
+}
 
+const editProductReviews = async (req, res) => {
+}
 
 const addProductRating = async (req, res) => {
     try {
@@ -117,5 +121,7 @@ const addProductRating = async (req, res) => {
 module.exports = {
     getProductReviews,
     addProductReviews,
-    addProductRating
+    addProductRating,
+    deleteProductReviews ,
+    editProductReviews
 };
