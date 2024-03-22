@@ -96,8 +96,8 @@ const deleteProductReviews = async (req, res) => {
             res.status(422).send("invalid")
             return
         }
-        if (review.user.id !== user.id) {
-            res.status(422).send("invalid")
+        if (review.user.id !== user) {
+            res.status(422).send("invalid2")
             return
         }
         await review.deleteOne({
