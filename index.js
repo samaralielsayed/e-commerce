@@ -40,7 +40,7 @@ exp.use("/api/carts",shoppingCartRouter);
 exp.use("/api/admin",AdminRouter);
 
 // app.get("/api/users/books",[auth, isAdmin],getUserBooks)
-exp.use("/api/products", reviewRoutes);
+exp.use("/api/product", reviewRoutes);
 
 
 exp.use(Error);
