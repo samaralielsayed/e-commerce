@@ -23,7 +23,7 @@ const getProductReviews = async (req, res) => {
     } = req.params;
     try {
         const reviews = await Review.find({
-            prodcut: id
+            product: id
         }).exec();
         res.send(reviews);
 
