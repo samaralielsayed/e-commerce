@@ -2,18 +2,29 @@ const Product = require('../models/product.model');
 const Review = require('../models/review.model');
 const User = require('../models/user.model');
 
-const getProductReviews = async (req, res) => {
-    const {
-        id
-    } = req.params;
+// const getProductReviews = async (req, res) => {
+//     const {
+//         id
+//     } = req.params;
+//     try {
+//         const reviews = await Review.find({
+//             product: id
+//         }).populate('user').populate('product');
+//         res.send(reviews);
+
+//     } catch (error) {
+//         return res.status(404).send("Invalid request" + error.message);
+//     }
+// }
+
+const getProductReviews = async(req , res) => {
+    const { id } = req.params;
     try {
-        const reviews = await Review.find({
-            product: id
-        }).populate('user').populate('product');
+        const reviews = await Review.find({ prodcut: id }).exec();
         res.send(reviews);
 
     } catch (error) {
-        return res.status(404).send("Invalid request" + error.message);
+        return res.status(404).send("Invalid request");
     }
 }
 
