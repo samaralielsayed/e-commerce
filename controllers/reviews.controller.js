@@ -38,6 +38,7 @@ const addProductReviews = async (req, res) => {
             reviewDetails,
             user
         } = req.body;
+        console.log(user)
         //const email =req.headers["email"];
         // const user= req.user;
 
@@ -62,7 +63,7 @@ const addProductReviews = async (req, res) => {
         const review = await Review.create({
             reviewDetails: reviewDetails,
             user: user,
-            prodcut: id
+            product: id
         })
         res.send(review);
     } catch (error) {
