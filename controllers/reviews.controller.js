@@ -29,45 +29,30 @@ const getProductReviews = async(req , res) => {
 }
 
 const addProductReviews = async (req, res) => {
-    try {
-        const {
-            reviewDetails,
-            userId
-        } = req.body;
-        //const email =req.headers["email"];
-        // const user = req.user;
-        const user = userId;
+    try{
+    const {reviewDetails,user} = req.body;
+    //const email =req.headers["email"];
+    // const user= req.user;
 
-        //const user = await User.findOne({email: email});
+    //const user = await User.findOne({email: email});
 
-        const {
-            id
-        } = req.params;
+    const { id } = req.params;
 
-        // if (!user || !reviewDetails)
-        //     return res.status(404).send({
-        //         message: "missed data"
-        //     })
+    if(!user || !reviewDetails) 
+    return res.status(404).send({message:"missed data"})
 
-        // const product = await Product.findOne({
-        //     _id: id
-        // });
-        // if (!product) {
-        //     res.status(422).send("invalid")
-        //     return
-        // }
-        const review = await Review.create({
-            reviewDetails: reviewDetails,
-            // user: user.id,
-            user: userId,
-            prodcut: id
-        })
-        res.send(review);
-    } catch (error) {
-        // res.status(404).send({
-           "lll"+ error.message
-        // })
-    }
+    const product = await Product.findOne({ _id: id });
+    if(!product){
+    res.status(422).send("invalid") 
+    return 
+    } 
+    const review =await Review.create({
+        reviewDetails:reviewDetails,
+        user:user.id,
+        prodcut:id
+    })
+    res.send(review);}
+    catch(error){res.status(404).send({message:error.message})}
 }
 
 
