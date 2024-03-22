@@ -48,10 +48,12 @@ const addProductReviews = async (req, res) => {
             id
         } = req.params;
 
-        if (!user || !reviewDetails)
-            return res.status(404).send({
+        if (!user || !reviewDetails){
+            res.status(404).send({
                 message: "missed data"
             })
+            return 
+        }
 
         const product = await Product.findOne({
             _id: id
