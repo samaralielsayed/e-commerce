@@ -80,7 +80,7 @@ const deleteProductReviews = async (req, res) => {
         // const user= req.user;
         const {
             user
-        } = req.query;
+        } = req.headers;
         console.log(user)
 
         const {
